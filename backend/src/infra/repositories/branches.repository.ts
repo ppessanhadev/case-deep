@@ -6,6 +6,6 @@ export class BranchesRepository {
   constructor(private database: DatabaseService) {}
 
   public async list() {
-    return this.database.branches.findMany();
+    return this.database.branch.findMany();
   }
 }
