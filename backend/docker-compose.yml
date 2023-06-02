@@ -11,6 +11,30 @@ services:
       - 5432
     volumes:
       - db:/var/lib/postgresql/data
+    networks:
+      - items
 
+  api:
+    container_name: api
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file: .env
+    environment:
+      DATABASE_URL: postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/mydb?schema=public
+    ports:
+      - 4444:4444
+    expose:
+      - 4444
+    depends_on:
+      - postgres
+    networks:
+      - items
 volumes:
   db:
+    driver: local
+
+networks:
+  items:
+    driver: bridge
+
