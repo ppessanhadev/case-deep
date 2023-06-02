@@ -1,11 +1,11 @@
 import { Injectable } from '@nestjs/common';
-import { BranchesRepository } from '@infra/repositories/branches.repository';
+import { BranchRepository } from '@infra/repositories/branch.repository';
 
 @Injectable()
 export class ListBranchesUseCase {
-  constructor(private branchesRepository: BranchesRepository) {}
+  constructor(private branchRepository: BranchRepository) {}
 
   public async list() {
-    return await this.branchesRepository.list();
+    return await this.branchRepository.list();
   }
 }
