@@ -20,7 +20,7 @@
     "paths": {
       "@application/*": ["src/application/*"],
       "@controllers/*": ["src/application/controllers/*"],
-      "@schemas/*": ["src/application/schemas/*"],
+      "@schemas/*": ["src/shared/schemas/*"],
       "@domain/*": ["src/domain/*"],
       "@infra/*": ["src/infra/*"],
       "@repositories/*": ["src/infra/repositories/*"],

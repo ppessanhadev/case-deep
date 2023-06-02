@@ -10,7 +10,7 @@ export default {
   moduleNameMapper: {
     '^@application(.*)$': '<rootDir>/src/application/$1',
     '^@controllers(.*)$': '<rootDir>/src/application/controllers/$1',
-    '^@schemas(.*)$': '<rootDir>/src/application/schemas/$1',
+    '^@schemas(.*)$': '<rootDir>/src/shared/schemas/$1',
     '^@domain(.*)$': '<rootDir>/src/domain/$1',
     '^@infra(.*)$': '<rootDir>/src/infra/$1',
     '^@repositories(.*)$': '<rootDir>/src/infra/repositories/$1',
