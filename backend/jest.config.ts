@@ -14,7 +14,7 @@ export default {
     '^@domain(.*)$': '<rootDir>/src/domain/$1',
     '^@infra(.*)$': '<rootDir>/src/infra/$1',
     '^@repositories(.*)$': '<rootDir>/src/infra/repositories/$1',
-    '^@types(.*)$': '<rootDir>/src/types/$1',
+    '^@shared(.*)$': '<rootDir>/src/shared/$1',
     '^@test(.*)$': '<rootDir>/test/$1',
   },
 };
