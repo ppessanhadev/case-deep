@@ -1,7 +1,7 @@
 import { Branch } from '@prisma/client';
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { BranchRepository } from '@infra/repositories/branch.repository';
-import { UpdateBranchRequest } from '@schemas/branches/update-branch.schema';
+import { UpdateBranchRequest } from '@schemas/branch/update-branch.schema';
 
 @Injectable()
 export class UpdateBranchUseCase {

@@ -1,7 +1,7 @@
 import { Branch } from '@prisma/client';
 import { ConflictException, Injectable } from '@nestjs/common';
 import { BranchRepository } from '@infra/repositories/branch.repository';
-import { CreateBranchRequest } from '@schemas/branches/create-branch.schema';
+import { CreateBranchRequest } from '@schemas/branch/create-branch.schema';
 
 @Injectable()
 export class CreateBranchUseCase {
