@@ -4,10 +4,10 @@ import { z } from 'zod';
 const UpdateAirConditionerSchema = z.object({
   id: z.string().uuid(),
   branchId: z.string().uuid(),
-  name: z.string(),
-  description: z.string(),
-  quantity: z.number().int(),
-  btu: z.number(),
+  name: z.string().optional(),
+  description: z.string().optional(),
+  quantity: z.number().int().optional(),
+  btu: z.number().optional(),
 });
 
 export class UpdateAirConditionerRequest extends createZodDto(
