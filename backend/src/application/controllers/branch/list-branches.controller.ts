@@ -1,5 +1,5 @@
 import { DefineController, DefineRoute } from '@application/decorators';
-import { ListBranchesUseCase } from '@domain/branches/list-branches.usecase';
+import { ListBranchesUseCase } from '@domain/branch/list-branches.usecase';
 import { ListBranchesResponse } from '@schemas/branches/list-branches.schema';
 
 @DefineController('branches')
