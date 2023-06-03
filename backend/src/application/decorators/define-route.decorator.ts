@@ -12,7 +12,6 @@ import { DefineRouteOptions } from '@shared/types/decorators/DefineRouteOptions'
  *      queries: [{ name: 'search', example: 'something' }],
  *      response: { type: ExampleDTO },
  *      code: 200,  // default
- *      auth: false  // default
  *    })
  *    async index() {}
  * }
