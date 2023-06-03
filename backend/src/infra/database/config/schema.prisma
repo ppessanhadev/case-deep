@@ -38,7 +38,19 @@ model Computer {
   branchId String @map("branch_id") @db.Uuid()
   name     String
   quantity Int
-  brand    String
+  brand    Brand
 
   @@map("computer")
+}
+
+enum Brand {
+  Unknown
+  Acer
+  Alienware
+  Asus
+  Gigabyte
+  Dell
+  Samsung
+
+  @@map("brand")
 }
