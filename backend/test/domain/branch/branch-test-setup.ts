@@ -3,6 +3,7 @@ import { BranchRepository } from '@infra/repositories/branch.repository';
 import { branchRepositoryMock } from '@test/mocks/branch-repository.mock';
 import { CreateBranchUseCase } from '@domain/branch/create-branch.usecase';
 import { DeleteBranchUseCase } from '@domain/branch/delete-branch.usecase';
+import { ListBranchesUseCase } from '@domain/branch/list-branches.usecase';
 
 const branchRepositoryModule: Provider = {
   provide: BranchRepository,
@@ -11,3 +12,4 @@ const branchRepositoryModule: Provider = {
 
 export const mockCreateBranchModule: Provider[] = [CreateBranchUseCase, branchRepositoryModule];
 export const mockDeleteBranchModule: Provider[] = [DeleteBranchUseCase, branchRepositoryModule];
+export const mockListBranchesModule: Provider[] = [ListBranchesUseCase, branchRepositoryModule];
