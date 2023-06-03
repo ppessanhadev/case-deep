@@ -33,12 +33,13 @@ model AirConditioner {
 }
 
 model Computer {
-  id       String @id @default(uuid()) @db.Uuid()
-  branch   Branch @relation(fields: [branchId], references: [id], onDelete: Cascade)
-  branchId String @map("branch_id") @db.Uuid()
-  name     String
-  quantity Int
-  brand    Brand
+  id          String @id @default(uuid()) @db.Uuid()
+  branch      Branch @relation(fields: [branchId], references: [id], onDelete: Cascade)
+  branchId    String @map("branch_id") @db.Uuid()
+  description String
+  name        String
+  quantity    Int
+  brand       Brand
 
   @@map("computer")
 }
