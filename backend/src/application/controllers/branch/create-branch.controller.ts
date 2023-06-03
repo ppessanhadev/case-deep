@@ -1,7 +1,7 @@
 import { Body } from '@nestjs/common';
 import { DefineController, DefineRoute } from '@application/decorators';
 import { CreateBranchUseCase } from '@domain/branch/create-branch.usecase';
-import { CreateBranchRequest } from '@schemas/branches/create-branch.controller';
+import { CreateBranchRequest } from '@schemas/branches/create-branch.schema';
 
 @DefineController('branches')
 export class CreateBranchController {
