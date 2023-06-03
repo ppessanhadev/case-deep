@@ -22,8 +22,9 @@ model Branch {
 
 model AirConditioner {
   id          String @id @default(uuid()) @db.Uuid()
-  branch      Branch @relation(fields: [branch_id], references: [id], onDelete: Cascade)
-  branch_id   String @db.Uuid()
+  branch      Branch @relation(fields: [branchId], references: [id], onDelete: Cascade)
+  branchId    String @map("branch_id") @db.Uuid()
+  name        String
   description String
   quantity    Int
   btu         Float
@@ -32,11 +33,12 @@ model AirConditioner {
 }
 
 model Computer {
-  id        String @id @default(uuid()) @db.Uuid()
-  branch    Branch @relation(fields: [branch_id], references: [id], onDelete: Cascade)
-  branch_id String @db.Uuid()
-  quantity  Int
-  brand     String
+  id       String @id @default(uuid()) @db.Uuid()
+  branch   Branch @relation(fields: [branchId], references: [id], onDelete: Cascade)
+  branchId String @map("branch_id") @db.Uuid()
+  name     String
+  quantity Int
+  brand    String
 
   @@map("computer")
 }
