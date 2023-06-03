@@ -1,9 +1,9 @@
 import { Body, Query } from '@nestjs/common';
 import { DefineController, DefineRoute } from '@application/decorators';
 import { UpdateBranchUseCase } from '@domain/branch/update-branch.usecase';
-import { UpdateBranchRequest, UpdateBranchResponse } from '@schemas/branches/update-branch.schema';
+import { UpdateBranchRequest, UpdateBranchResponse } from '@schemas/branch/update-branch.schema';
 
-@DefineController('branches')
+@DefineController('branch')
 export class UpdateBranchController {
   constructor(private updateBranchUseCase: UpdateBranchUseCase) {}
 

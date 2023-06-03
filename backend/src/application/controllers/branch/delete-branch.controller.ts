@@ -2,7 +2,7 @@ import { Query } from '@nestjs/common';
 import { DefineController, DefineRoute } from '@application/decorators';
 import { DeleteBranchUseCase } from '@domain/branch/delete-branch.usecase';
 
-@DefineController('branches')
+@DefineController('branch')
 export class DeleteBranchController {
   constructor(private deleteBranchUseCase: DeleteBranchUseCase) {}
 

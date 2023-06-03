@@ -1,8 +1,8 @@
 import { DefineController, DefineRoute } from '@application/decorators';
 import { ListBranchesUseCase } from '@domain/branch/list-branches.usecase';
-import { ListBranchesResponse } from '@schemas/branches/list-branches.schema';
+import { ListBranchesResponse } from '@schemas/branch/list-branches.schema';
 
-@DefineController('branches')
+@DefineController('branch')
 export class ListBranchesController {
   constructor(private listBranchesUseCase: ListBranchesUseCase) {}
 
