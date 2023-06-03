@@ -6,7 +6,7 @@ const UpdateAirConditionerSchema = z.object({
   branchId: z.string().uuid(),
   name: z.string().optional(),
   description: z.string().optional(),
-  quantity: z.number().int().optional(),
+  quantity: z.preprocess((v) => Number(v), z.number().int()).optional(),
   btu: z.number().optional(),
 });
 
