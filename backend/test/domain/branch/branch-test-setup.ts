@@ -1,7 +1,8 @@
 import { Provider } from '@nestjs/common';
+import { BranchRepository } from '@infra/repositories/branch.repository';
 import { branchRepositoryMock } from '@test/mocks/branch-repository.mock';
 import { CreateBranchUseCase } from '@domain/branch/create-branch.usecase';
-import { BranchRepository } from '@infra/repositories/branch.repository';
+import { DeleteBranchUseCase } from '@domain/branch/delete-branch.usecase';
 
 const branchRepositoryModule: Provider = {
   provide: BranchRepository,
@@ -9,3 +10,4 @@ const branchRepositoryModule: Provider = {
 };
 
 export const mockCreateBranchModule: Provider[] = [CreateBranchUseCase, branchRepositoryModule];
+export const mockDeleteBranchModule: Provider[] = [DeleteBranchUseCase, branchRepositoryModule];
