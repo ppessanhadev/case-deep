@@ -17,4 +17,8 @@ export class BranchRepository {
   public async create(branch: Branch) {
     await this.database.branch.create({ data: branch });
   }
+
+  public async update(id: string, branch: Branch) {
+    return this.database.branch.update({ where: { id }, data: { ...branch } });
+  }
 }
