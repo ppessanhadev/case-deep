@@ -19,6 +19,10 @@ export class BranchRepository {
   }
 
   public async update(id: string, branch: Branch) {
-    return this.database.branch.update({ where: { id }, data: { ...branch } });
+    return this.database.branch.update({ where: { id }, data: branch });
+  }
+
+  public async delete(id: string) {
+    await this.database.branch.delete({ where: { id } });
   }
 }
