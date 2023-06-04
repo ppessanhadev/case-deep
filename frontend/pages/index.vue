@@ -1,8 +1,10 @@
 <template>
-  <main class="flex justify-center items-center w-full h-screen">
+  <main class="w-full h-screen">
     <Navbar />
-    <h1 class="block text-7xl text-slate-700 font-bold">
-      Página inicial
+    <h1 class="block text-3xl text-slate-700 font-bold w-[80%] mx-auto pt-24 pb-2">
+      Afiliados
     </h1>
+
+    <Table />
   </main>
 </template>
