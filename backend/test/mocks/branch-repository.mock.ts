@@ -6,6 +6,6 @@ export const branchRepositoryMock = {
   }),
   create: jest.fn().mockImplementation((value: any) => ({ id: 'mocked-uuid', ...value })),
   delete: jest.fn(),
-  update: jest.fn(),
+  update: jest.fn().mockImplementation((id: string, obj: any) => ({ id, ...obj })),
   list: jest.fn().mockReturnValue(branchesStub),
 };

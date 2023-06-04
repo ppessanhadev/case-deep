@@ -39,10 +39,11 @@ describe('UpdateBranchUseCase', () => {
 
     it('should update successfully', async () => {
       jest.spyOn(updateBranchUseCase, 'update');
-      await updateBranchUseCase.update('any-id', branchStub);
+      const response = await updateBranchUseCase.update('any-id', branchStub);
 
       expect(updateBranchUseCase.update).toHaveBeenCalledTimes(1);
       expect(updateBranchUseCase.update).toHaveBeenCalledWith('any-id', branchStub);
+      expect(response).toStrictEqual({ id: 'any-id', ...branchStub });
     });
   });
 });
