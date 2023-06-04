@@ -2,14 +2,16 @@ FROM node:18-alpine
 
 RUN npm i -g pnpm
 
-WORKDIR /app
+WORKDIR /usr/src/app
 
 COPY package.json pnpm-lock.yaml ./
 
-RUN pnpm install
+RUN pnpm install --shamefully-hoist
 
 COPY . .
 
 RUN npx prisma generate
+
+RUN pnpm build
 
 CMD ["pnpm", "start:migrate:prod"]
