@@ -4,7 +4,7 @@ import { ComputerRepository } from '@infra/repositories/computer.repository';
 import { ListComputersUseCase } from '@domain/computer/list-computers.usecase';
 import { mockListComputersModule } from '@test/domain/computer/computer-test-setup';
 
-describe('ListBranchUseCase', () => {
+describe('ListComputersUseCase', () => {
   let listComputersUseCase: ListComputersUseCase;
   let computerRepository: ComputerRepository;
 
