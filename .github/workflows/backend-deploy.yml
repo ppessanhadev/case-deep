@@ -1,4 +1,8 @@
 name: Deploy backend application
+env:
+  VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+  VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+  DATABASE_URL: ${{ secrets.VERCEL_DATABASE_URL }}
 on:
   push:
     branches:
@@ -8,11 +12,19 @@ on:
 
 jobs:
   deploy:
-    name: Deploy backend on google cloud
+    name: Deploy backend on vercel
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v3
+      
+      - name: Install Vercel CLI
+        run: npm i -g vercel@latest
 
-    # Setup gcloud CLI
-    - uses: GoogleCloudPlataform/github-actions/setup-gloud@master
+      - name: Pull Vercel Environment Information
+        run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
+
+      - name: Build Project Artifacts
+        run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
+
+      - name: Deploy Project Artifacts to Vercel
+        run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
