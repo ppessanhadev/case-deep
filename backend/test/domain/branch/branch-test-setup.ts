@@ -6,7 +6,7 @@ import { DeleteBranchUseCase } from '@domain/branch/delete-branch.usecase';
 import { ListBranchesUseCase } from '@domain/branch/list-branches.usecase';
 import { UpdateBranchUseCase } from '@domain/branch/update-branch.usecase';
 
-const branchRepositoryModule: Provider = {
+export const branchRepositoryModule: Provider = {
   provide: BranchRepository,
   useValue: branchRepositoryMock,
 };
