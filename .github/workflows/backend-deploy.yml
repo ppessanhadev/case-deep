@@ -1,8 +1,8 @@
 name: Deploy backend application
 env:
-  VERCEL_ORG_ID: ${{ vercel.VERCEL_ORG_ID }}
-  VERCEL_PROJECT_ID: ${{ vercel.VERCEL_PROJECT_ID }}
-  DATABASE_URL: ${{ vercel.VERCEL_DATABASE_URL }}
+  VERCEL_ORG_ID: ${{ secrets.vercel.VERCEL_ORG_ID }}
+  VERCEL_PROJECT_ID: ${{ secrets.vercel.VERCEL_PROJECT_ID }}
+  DATABASE_URL: ${{ secrets.vercel.VERCEL_DATABASE_URL }}
 on:
   push:
     branches:
@@ -21,10 +21,10 @@ jobs:
         run: npm i -g vercel@latest
 
       - name: Pull Vercel Environment Information
-        run: vercel pull --yes --environment=production --token=${{ vercel.VERCEL_TOKEN }}
+        run: vercel pull --yes --environment=production --token=${{ secrets.vercel.VERCEL_TOKEN }}
 
       - name: Build Project Artifacts
-        run: vercel build --prod --token=${{ vercel.VERCEL_TOKEN }}
+        run: vercel build --prod --token=${{ secrets.vercel.VERCEL_TOKEN }}
 
       - name: Deploy Project Artifacts to Vercel
-        run: vercel deploy --prebuilt --prod --token=${{ vercel.VERCEL_TOKEN }}
+        run: vercel deploy --prebuilt --prod --token=${{ secrets.vercel.VERCEL_TOKEN }}
