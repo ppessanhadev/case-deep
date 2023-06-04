@@ -38,6 +38,6 @@ jobs:
 
       - name: Deploy Docker image
         run: |
-          gcloud run deploy site \
+          gcloud run deploy deepesg-challenge-api \
           --image $IMAGE_NAME --region us-central1 \
           --memory 512Mi --min-instances 0 --max-instances 1 --platform managed --allow-unauthenticated

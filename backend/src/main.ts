@@ -28,7 +28,6 @@ const appConfig = (app: INestApplication) => {
 const initialize = async () => {
   const port = process.env.PORT || '3000';
   const app = await NestFactory.create(ControllerModule);
-
   appConfig(app);
   swaggerConfig(app);
 
