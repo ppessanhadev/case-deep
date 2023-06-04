@@ -31,7 +31,7 @@ describe('DeleteBranchUseCase', () => {
       const response = () => deleteBranchUseCase.delete('nonexist-id');
 
       expect(response).rejects.toThrow(NotFoundException);
-      expect(response).rejects.toThrowError('User does not exists.');
+      expect(response).rejects.toThrowError('Branch does not exists.');
     });
 
     it('should delete successfully', async () => {

@@ -6,10 +6,10 @@ export class DeleteBranchUseCase {
   constructor(private branchRepository: BranchRepository) {}
 
   public async delete(id: string) {
-    const userExists = await this.branchRepository.findOne({ where: { id } });
+    const branchExists = await this.branchRepository.findOne({ where: { id } });
 
-    if (!userExists) {
-      throw new NotFoundException('User does not exists.');
+    if (!branchExists) {
+      throw new NotFoundException('Branch does not exists.');
     }
 
     await this.branchRepository.delete(id);
