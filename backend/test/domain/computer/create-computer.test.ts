@@ -5,7 +5,7 @@ import { ComputerRepository } from '@infra/repositories/computer.repository';
 import { CreateComputerUseCase } from '@domain/computer/create-computer.usecase';
 import { mockCreateComputerModule } from '@test/domain/computer/computer-test-setup';
 
-describe('DeleteComputerUseCase', () => {
+describe('CreateComputerUseCase', () => {
   let createComputerUseCase: CreateComputerUseCase;
   let computerRepository: ComputerRepository;
   const [computerStub] = computersStub;
@@ -29,14 +29,14 @@ describe('DeleteComputerUseCase', () => {
   });
 
   describe('delete()', () => {
-    it('should throw an error if computer doesnt exists', async () => {
+    it('should throw an error if branch id does not exists', async () => {
       const response = () => createComputerUseCase.create({ name: 'error' });
 
       expect(response).rejects.toThrow(NotFoundException);
       expect(response).rejects.toThrowError('Branch not found.');
     });
 
-    it('should delete computer successfully', async () => {
+    it('should create a new computer successfully', async () => {
       jest.spyOn(createComputerUseCase, 'create');
       await createComputerUseCase.create({ ...computerStub, branchId: 'any-id' });
 
