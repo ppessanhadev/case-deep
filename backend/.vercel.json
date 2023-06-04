@@ -3,20 +3,15 @@
   "name": "case-deepesg-api",
   "builds": [
     {
-      "src": "dist/src/main.js",
+      "src": "src/main.ts",
       "use": "@vercel/node"
     }
   ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "dist/src/main.js",
-      "methods": [
-        "GET",
-        "POST",
-        "PATCH",
-        "DELETE"
-      ]
+      "dest": "src/main.ts",
+      "methods": ["GET", "POST", "PATCH", "DELETE"]
     }
   ]
 }
