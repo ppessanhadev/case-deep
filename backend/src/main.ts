@@ -1,9 +1,9 @@
 import helmet from 'helmet';
-import { AppModule } from './app.module';
 import { NestFactory } from '@nestjs/core';
 import { patchNestJsSwagger } from 'nestjs-zod';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { INestApplication, Logger, VersioningType } from '@nestjs/common';
+import { ControllerModule } from '@application/controllers/controller.module';
 
 const swaggerConfig = (app: INestApplication) => {
   const config = new DocumentBuilder()
@@ -27,7 +27,7 @@ const appConfig = (app: INestApplication) => {
 
 const initialize = async () => {
   const port = process.env.PORT || '3000';
-  const app = await NestFactory.create(AppModule);
+  const app = await NestFactory.create(ControllerModule);
 
   appConfig(app);
   swaggerConfig(app);
