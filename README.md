@@ -10,12 +10,12 @@ Para o desenvolvimento geral, utilizei as principais ferramentas e conceitos:
 - [Nuxt 3](https://nuxt.com) para o desenvolvimento frontend
 - [Github Actions](https://github.com/features/actions) para automação de deploy e integração continua dos serviços;
 - O Backend recebeu um deploy na Google Cloud, em quanto o frontend na Vercel
-- Backend foi projetado com arquitetura hexagonal e conceitos de SOLID e Clean Code visando o crescrimento esponencial da aplicação
+- Backend foi projetado com arquitetura hexagonal e conceitos de SOLID e Clean Code visando o crescimento esponencial da aplicação
 - Pode ser rodada separadamente com [pnpm](https://pnpm.io) ou [docker](https://www.docker.com)
 
 ## Backend REST API
 
-O Backend foi desenvolvido com [NestJS](https://nestjs.com), Toda a lógica da aplicação está centralizada nele, sendo resposável por listar, criar, alterar e deletar os afiliados e seus produtos.
+O Backend foi desenvolvido com [NestJS](https://nestjs.com), toda a lógica da aplicação está centralizada nele, sendo resposável por listar, criar, alterar e deletar os afiliados e seus produtos.
 
 **Tecnologias utilizadas**
 - Typescript
@@ -61,7 +61,7 @@ Os dados que devem ser enviados e são opcionais podem ser vistos a partir da do
 
 O Backend foi organizado e está divida nas seguintes camadas:
 
-- `application`: Responsável por conter tudo o que é resposável pelo fluxo de entrada e saída - da aplicação, podendo incluir validações de entrada, tratativa de erro e segurança caso seja necessário.
+- `application`: Responsável por conter tudo relacionado a fluxo de entrada e saída da aplicação, podendo incluir validações de entrada, tratativa de erro e segurança caso seja necessário.
 - `domain`: Responsável por conter toda a lógica e regra de negócio através de seus casos de uso.
 - `infra`: Responsável por conter e gerenciar comunicações externas, seja com banco de dados, com provedores como APIs externas e microserviços.
 - `shared`: Responsável por conter tudo aquilo que pode ser compartilhado entre outras camadas, como tipagens e configurações de ambiente.
