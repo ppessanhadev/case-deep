@@ -1,6 +1,9 @@
 <script setup lang="ts">
+  import { useBranchStore } from '~~/stores/branch';
   import { useBranchFormValidation } from '~~/composables/validators/useBranchFormValidation';
+
   const props = defineProps<{ close: () => void }>();
+  const branchStore = useBranchStore();
 
   const fields = reactive({ name: '', description: '' });
   const v$ = useBranchFormValidation(fields);
@@ -9,8 +12,8 @@
     v$.value.$validate();
 
     if (!v$.value.$error) {
-      console.log('subindo...');
       props.close();
+      branchStore.fetchBranches();
     }
   };
 </script>

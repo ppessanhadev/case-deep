@@ -2,6 +2,7 @@
 import eslintPlugin from 'vite-plugin-eslint';
 
 export default defineNuxtConfig({
+  modules: ['@pinia/nuxt'],
   css: ['~/styles/global.css'],
   vite: { plugins: [eslintPlugin()] },
   postcss: {
@@ -10,4 +11,12 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
+  imports: {
+    dirs: ['./stores'],
+  },
+  runtimeConfig: {
+    public: {
+      baseURL: process.env.BASE_URL || ''
+    }
+  }
 });
