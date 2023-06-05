@@ -26,7 +26,7 @@
       </button>
 
       <h1 class="text-3xl text-slate-600 font-bold mb-4 capitalize">
-        Cadastrar novo computador
+        Cadastrar computador
       </h1>
 
       <Selector
@@ -68,7 +68,7 @@
       />
 
       <button type="button" class="btn-create-form capitalize" :disabled="v$.$error" @click="handleSubmit">
-        Criar Computador
+        Cadastrar
       </button>
     </form>
   </NuxtLayout>
