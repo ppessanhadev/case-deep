@@ -1,8 +1,8 @@
 <script setup lang="ts">
-  import { useComputerValidators } from '~~/composables/validators/useComputerValidators';
+  import { useComputerFormValidation } from '~~/composables/validators/useComputerFormValidation';
 
   const fields = reactive({ name: '', description: '', quantity: '0', branchId: '', brand: '' });
-  const v$ = useComputerValidators(fields);
+  const v$ = useComputerFormValidation(fields);
 
   const selectors = computed(() => ({
     branches: [{ id: '551', name: 'Afiliadox' }, { id: '254', name: 'Afiliadão' }],
