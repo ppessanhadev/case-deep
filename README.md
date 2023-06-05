@@ -4,6 +4,7 @@ Essa aplicação tem como objetivo ser uma plataforma de gestão de inventários
 Ela foi desenvolvida como um monorepo, ou seja, possuí backend e frontend juntos.
 
 **Overview da aplicação**
+
 Para o desenvolvimento geral, utilizei as principais ferramentas e conceitos:
 - [NestJS](https://nestjs.com) para o desenvolvimento backend
 - [Nuxt 3](https://nuxt.com) para o desenvolvimento frontend
@@ -13,6 +14,7 @@ Para o desenvolvimento geral, utilizei as principais ferramentas e conceitos:
 - Pode ser rodada separadamente com [pnpm](https://pnpm.io) ou [docker](https://www.docker.com)
 
 ## Backend REST API
+
 O Backend foi desenvolvido com [NestJS](https://nestjs.com), Toda a lógica da aplicação está centralizada nele, sendo resposável por listar, criar, alterar e deletar os afiliados e seus produtos.
 
 **Tecnologias utilizadas**
@@ -25,6 +27,7 @@ O Backend foi desenvolvido com [NestJS](https://nestjs.com), Toda a lógica da a
 - Lint com [ESlint](https://eslint.org/) + [Prettier](https://prettier.io/) para manter a consistencia do código
 
 **Rotas**
+
 Os dados que devem ser enviados e são opcionais podem ser vistos a partir da documentação gerada pelo Swagger [nesse link](https://api-deepesg-challenge-xwxdbbbitq-uc.a.run.app/api/docs)
 
 > **Afiliados**
