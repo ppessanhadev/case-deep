@@ -31,6 +31,16 @@ export const useBranchStore = defineStore({
       });
 
       await this.fetchBranches();
+    },
+    async deleteBranch(id: string) {
+      this.loading = true;
+
+      await useApi('/api/v1/branch', {
+        method: 'DELETE',
+        params: { id }
+      });
+
+      await this.fetchBranches();
     }
   }
 });

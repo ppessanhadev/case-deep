@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <h2 v-if="!store.hasBranches && !store.loading" class="w-full text-center text-4xl font-medium text-red-500">
+  <h2 v-if="!store.hasBranches && !store.loading" class="w-full text-center text-3xl font-bold text-slate-800 mt-4">
     Sem afiliados cadastrados
   </h2>
 
