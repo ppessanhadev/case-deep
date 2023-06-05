@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  defineProps<{ title: string, titlePlural: string }>();
+  defineProps<{ title: string, titlePlural: string, open?: () => void }>();
 </script>
 
 <template>
@@ -8,7 +8,7 @@
       {{ titlePlural }}
     </h1>
 
-    <button type="button" class="btn-create capitalize">
+    <button type="button" class="btn-create capitalize" @click="open">
       <p class="p-1 text-2xl">
         Criar {{ title }}
       </p>

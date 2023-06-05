@@ -1,5 +1,6 @@
 <script setup lang="ts">
   import { useBranchFormValidation } from '~~/composables/validators/useBranchFormValidation';
+  const props = defineProps<{ close: () => void }>();
 
   const fields = reactive({ name: '', description: '' });
   const v$ = useBranchFormValidation(fields);
@@ -9,14 +10,15 @@
 
     if (!v$.value.$error) {
       console.log('subindo...');
+      props.close();
     }
   }
 </script>
 
 <template>
   <NuxtLayout name="background-modal">
-    <form class="relative w-[600px] p-6 bg-white rounded shadow-xl">
-      <button type="button" class="absolute text-zinc-600 right-2 top-2">
+    <form v-click-outside="close" class="relative w-[600px] p-6 bg-white rounded shadow-xl">
+      <button type="button" class="absolute text-zinc-600 right-2 top-2" @click="close">
         <SVGClose class="fill-slate-400 w-6 h-6" />
       </button>
 
