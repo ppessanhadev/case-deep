@@ -5,14 +5,14 @@
   const fields = reactive({ name: '', description: '' });
   const v$ = useBranchFormValidation(fields);
 
-  function handleSubmit() {
+  const handleSubmit = () => {
     v$.value.$validate();
 
     if (!v$.value.$error) {
       console.log('subindo...');
       props.close();
     }
-  }
+  };
 </script>
 
 <template>

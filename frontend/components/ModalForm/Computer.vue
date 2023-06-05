@@ -10,14 +10,14 @@
     brands: [{ id: 'Unknown', name: 'Genérico' }, { id: 'Acer', name: 'Acer' }, { id: 'Gigabyte', name: 'Gigabyte' }]
   }));
 
-  function handleSubmit() {
+  const handleSubmit = () => {
     v$.value.$validate();
 
     if (!v$.value.$error) {
       console.log('subindo...');
       props.close();
     }
-  }
+  };
 </script>
 
 <template>
