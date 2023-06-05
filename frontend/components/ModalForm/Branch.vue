@@ -1,6 +1,4 @@
 <script setup lang="ts">
-  import { useBranchFormValidation } from '~~/composables/validators/useBranchFormValidation';
-
   const props = defineProps<{ close: () => void }>();
   const branchStore = useBranchStore();
 

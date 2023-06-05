@@ -1,5 +1,4 @@
 <script setup lang="ts">
-  import { useAirConditionerFormValidation } from '~~/composables/validators/useAirConditionerFormValidation';
   const props = defineProps<{ close: () => void }>();
 
   const fields = reactive({ name: '', description: '', quantity: '0', btu: '', branchId: '' });

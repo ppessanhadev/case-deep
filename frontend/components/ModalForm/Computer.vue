@@ -1,5 +1,4 @@
 <script setup lang="ts">
-  import { useComputerFormValidation } from '~~/composables/validators/useComputerFormValidation';
   const props = defineProps<{ close: () => void }>();
 
   const fields = reactive({ name: '', description: '', quantity: '0', branchId: '', brand: '' });
