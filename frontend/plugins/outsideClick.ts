@@ -1,6 +1,4 @@
 export default defineNuxtPlugin((nuxtApp) => {
-  if (process.server) return;
-
   nuxtApp.vueApp.directive('click-outside', {
     mounted(el, binding) {
 

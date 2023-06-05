@@ -68,6 +68,8 @@ O Backend foi organizado e está divida nas seguintes camadas:
 
 **Como rodar o projeto**
 
+**OBS**: As aplicações foram desenvolvidas na versão v18 do node, então, caso não rode em um container por docker é necessário que mude sua versão.
+
 A partir da raiz do projeto em seu terminal, siga os próximos passos para rodar a API localmente:
 
 **Rodando localmente com docker/docker-compose**
@@ -87,8 +89,7 @@ O projeto em si foi desenvolvido utilizado o gerenciador de pacote pnpm, para in
 5. `pnpm prisma db push`
 6. `pnpm start:dev`
 
->> A aplicação estará rodando em: http://localhost:3000
-mas pode ser alterada caso aplique uma porta diferente no arquivo .env atribuindo a chave PORT
+>> A aplicação estará rodando em: http://localhost:3000 mas pode ser alterada caso aplique uma porta diferente no arquivo `.env` atribuindo a chave `PORT`
 
 ## Frontend
 

@@ -11,10 +11,7 @@
         Afiliados
       </h1>
 
-      <button
-        type="button"
-        class="block-inline border-2 border-green-500 rounded-lg hover:bg-green-500 hover:text-white transition-all text-green-500 font-bold p-2 disabled:opacity-70 disabled:cursor-not-allowed"
-      >
+      <button type="button" class="btn-create">
         <p class="p-1 text-2xl">
           Criar Afiliado
         </p>
