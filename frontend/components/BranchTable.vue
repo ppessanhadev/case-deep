@@ -10,7 +10,6 @@
       state.value = false;
     }
   };
-
 </script>
 
 <template>
