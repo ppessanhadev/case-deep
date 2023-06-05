@@ -21,6 +21,16 @@ export const useBranchStore = defineStore({
       }
 
       this.loading = false;
+    },
+    async addBranch(branch: Omit<Branch, 'id'>) {
+      this.loading = true;
+
+      await useApi('/api/v1/branch', {
+        method: 'POST',
+        body: branch
+      });
+
+      await this.fetchBranches();
     }
   }
 });

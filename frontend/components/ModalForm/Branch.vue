@@ -1,5 +1,4 @@
 <script setup lang="ts">
-  import { useBranchStore } from '~~/stores/branch';
   import { useBranchFormValidation } from '~~/composables/validators/useBranchFormValidation';
 
   const props = defineProps<{ close: () => void }>();
@@ -13,7 +12,7 @@
 
     if (!v$.value.$error) {
       props.close();
-      branchStore.fetchBranches();
+      branchStore.addBranch(fields);
     }
   };
 </script>
