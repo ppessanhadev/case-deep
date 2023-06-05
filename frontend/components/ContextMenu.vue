@@ -1,5 +1,5 @@
 <template>
-  <section class="absolute right-7 top-8 w-auto h-auto py-2 px-2 pr-12 border bg-gray-100 border-slate-400 text-left">
+  <section class="absolute right-7 top-8 w-auto h-auto py-2 px-2 pr-12 border bg-gray-100 border-slate-400 text-left z-10">
     <button class="flex items-center font-medium text-slate-800 text-lg hover:text-slate-500">
       <SVGPencil class="fill-yellow-500 mr-1" />
       Editar
