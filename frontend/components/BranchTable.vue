@@ -1,3 +1,18 @@
+<script setup lang="ts">
+  const state = ref(false);
+
+  const handleOptions = () => {
+    state.value = !state.value;
+  };
+
+  const closeOptions = () => {
+    if (state.value) {
+      state.value = false;
+    }
+  };
+
+</script>
+
 <template>
   <table class="w-[80%] mx-auto">
     <thead class="[&>tr>th]:p-2 [&>tr>th]:text-left [&>tr>th]:border [&>tr>th]:border-slate-300">
@@ -18,10 +33,12 @@
         <td>Alfreds Futterkiste</td>
         <td>Maria Anders</td>
         <td>Germany</td>
-        <td class="text-center">
-          <button>
+        <td v-click-outside="closeOptions" class="relative text-center">
+          <button @click="handleOptions">
             <SVGVerticalThreeDots class="w-6 h-6 fill-slate-400" />
           </button>
+
+          <ContextMenu v-if="state" :close="handleOptions" />
         </td>
       </tr>
     </tbody>
