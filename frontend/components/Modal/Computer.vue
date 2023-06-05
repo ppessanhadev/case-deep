@@ -1,10 +1,21 @@
 <script setup lang="ts">
-  const fields = ref({ name: '', description: '', quantity: '0', branchId: '', brand: '' });
+  import { useComputerValidators } from '~~/composables/validators/useComputerValidators';
+
+  const fields = reactive({ name: '', description: '', quantity: '0', branchId: '', brand: '' });
+  const v$ = useComputerValidators(fields);
 
   const selectors = computed(() => ({
     branches: [{ id: '551', name: 'Afiliadox' }, { id: '254', name: 'Afiliadão' }],
     brands: [{ id: 'Unknown', name: 'Genérico' }, { id: 'Acer', name: 'Acer' }, { id: 'Gigabyte', name: 'Gigabyte' }]
   }));
+
+  function handleSubmit() {
+    v$.value.$validate();
+
+    if (!v$.value.$error) {
+      console.log('subindo...');
+    }
+  }
 </script>
 
 <template>
@@ -18,13 +29,45 @@
         Cadastrar novo computador
       </h1>
 
-      <Selector id="branch-selector" v-model="fields.branchId" label="Afiliado" :options="selectors.branches" />
-      <Input id="computer-name" v-model="fields.name" label="Nome" type="text" class="mt-2" />
-      <Input id="computer-description" v-model="fields.description" label="Descrição" type="textarea" class="mt-2" />
-      <Input id="computer-quantity" v-model="fields.quantity" label="Quantidade" type="number" class="mt-2" />
-      <Selector id="brand-selector" v-model="fields.brand" label="Marca" :options="selectors.brands" class="mt-2" />
+      <Selector
+        id="branch-selector"
+        v-model="fields.branchId" label="Afiliado"
+        :options="selectors.branches"
+        :error="{'border-red-500 focus:border-red-500': v$.branchId.$error, message: v$.branchId.$errors[0]?.$message }"
+      />
+      <Input
+        id="computer-name"
+        v-model="fields.name"
+        label="Nome"
+        type="text"
+        class="mt-2"
+        :error="{'border-red-500 focus:border-red-500': v$.name.$error, message: v$.name.$errors[0]?.$message }"
+      />
+      <Input
+        id="computer-description"
+        v-model="fields.description"
+        label="Descrição"
+        type="textarea"
+        class="mt-2"
+        :error="{'border-red-500 focus:border-red-500': v$.description.$error, message: v$.description.$errors[0]?.$message }"
+      />
+      <Input
+        id="computer-quantity"
+        v-model="fields.quantity"
+        label="Quantidade"
+        type="number" class="mt-2"
+        :error="{'border-red-500 focus:border-red-500': v$.quantity.$error, message: v$.quantity.$errors[0]?.$message }"
+      />
+      <Selector
+        id="brand-selector"
+        v-model="fields.brand"
+        label="Marca"
+        class="mt-2"
+        :options="selectors.brands"
+        :error="{'border-red-500 focus:border-red-500': v$.brand.$error, message: v$.brand.$errors[0]?.$message }"
+      />
 
-      <button type="button" class="btn-create-form capitalize">
+      <button type="button" class="btn-create-form capitalize" :disabled="v$.$error" @click="handleSubmit">
         Criar Computador
       </button>
     </form>
