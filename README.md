@@ -81,6 +81,8 @@ A partir da raiz do projeto em seu terminal, siga os próximos passos para rodar
 2. `cp .env.example .env`
 3. `docker-compose up -d`
 
+>> A aplicação estará rodando em http://localhost:4444
+
 **Rodando localmente com pnpm**
 
 O projeto em si foi desenvolvido utilizado o gerenciador de pacote pnpm, para instalar, no seu terminal execute o comando `npm i -g pnpm`, e siga os próximos passos:
@@ -91,6 +93,12 @@ O projeto em si foi desenvolvido utilizado o gerenciador de pacote pnpm, para in
 4. Altere o valor de `DATABASE_URL` dentro de `.env` para uri do seu banco sql local
 5. `pnpm prisma db push`
 6. `pnpm start:dev`
+
+**Rodando testes**
+
+1. `cd backend`
+2. `pnpm install`
+3. `pnpm test`
 
 >> A aplicação estará rodando em: http://localhost:3000 mas pode ser alterada caso aplique uma porta diferente no arquivo `.env` atribuindo a chave `PORT`
 
@@ -103,11 +111,23 @@ Também tomei a liberade de realizar o deploy da aplicação na vercel, e ela po
 **Tecnologias utilizadas**
 
 - Typescript
-- Lint com [ESlint](https://eslint.org)
-- [Tailwind](https://tailwindcss.com) para estilização das páginas
-- [Pinia](https://pinia.vuejs.org) para gerencimaneto de estados global
+- Lint com [ESlint](https://eslint.org) para consistencia do código
+- [Tailwind](https://tailwindcss.com) para estilização das páginas de forma simplificada
+- [Pinia](https://pinia.vuejs.org) para compartilhamento de informações entre componentes e páginas
+- [Vuelidate](https://vuelidate-next.netlify.app/) para validação de campos de forma automatizada dos formulários
+
+**Rodando localmente com docker**
+
+1. `cd backend`
+2. `cp .env.example .env`
+3. `docker build -t deepesg-frontend .`
+4. `docker run deepesg-frontend`
+
+>> A aplicação estará rodando em http://localhost:3333
 
 **Rodando localmente com pnpm**
+
+**OBS**: As aplicações foram desenvolvidas na versão v18 do node, então, caso não rode em um container por docker é necessário que mude sua versão.
 
 O projeto em si foi desenvolvido utilizado o gerenciador de pacote pnpm, para instalar, no seu terminal execute o comando `npm i -g pnpm`, e siga os próximos passos:
 
@@ -115,3 +135,32 @@ O projeto em si foi desenvolvido utilizado o gerenciador de pacote pnpm, para in
 2. `cp .env.example .env`
 3. `pnpm install`
 6. `pnpm dev`
+
+>> A aplicação estará rodando em http://localhost:3000 caso não esteja rodando a api, caso contrario estará rodando em http://localhost:3001
+
+**Rodando toda a aplicação em conjunto**
+
+Para rodar toda a aplicação de uma vez só, precisará do docker-compose, uma vez instalado é só seguir os seguintes passos a partir da raiz do projeto:
+
+1. `docker-compose up`
+
+>> a api estará rodando em http://localhost:4444, em quanto o frontend estará rodando em http://localhost:3333
+
+## Possiveis melhorias
+
+Como toda a aplicação, sempre há espaços para melhorias, essas foram algumas possiveis melhorias que consegui identificar:
+
+  - `backend`:
+    - Maior cobertura de testes unitários
+    - Implementação de testes de ingração
+    - Permitir apenas requisições diretamente do front com o cors
+    - Melhor abtração com a possibilidade de receber generics dos repositories
+  - `frontend`:
+    - Implementação de testes unitários
+    - Implementação de testes E2E
+    - Melhor aproveitação de abstração de componentes, reduzindo consideravelmente sua quantidade
+    - Adição de Página 404
+  - `ci/cd`:
+    - Impedir push direto na main
+    - Adicionar actions para integração continua do frontend
+    - Rodar bateria de testes das aplicações como requisito antes de permitir integração das alterações
