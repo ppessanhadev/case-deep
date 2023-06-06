@@ -22,7 +22,9 @@ const appConfig = (app: INestApplication) => {
     .enableVersioning({ type: VersioningType.URI, defaultVersion: '1' })
     .setGlobalPrefix('api')
     .use(helmet())
-    .enableCors();
+    .enableCors({
+      origin: process.env.REQUEST_ORIGIN || '*',
+    });
 };
 
 const initialize = async () => {

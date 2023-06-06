@@ -41,7 +41,7 @@ export const DefineRoute = (option: DefineRouteOptions) => {
   return applyDecorators(
     methods[method || 'GET'](route),
     HttpCode(code),
-    ApiOperation({ summary: summary || '' }),
+    ApiOperation({ summary }),
     ApiResponse({ ...(response || {}), status: code }),
     ...applyQueries(),
     ...applyParams(),
