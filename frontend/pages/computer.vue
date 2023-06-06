@@ -1,5 +1,6 @@
 <script setup lang="ts">
   useHead({ title: 'DEEPESG | Computadores' });
+  definePageMeta({ middleware: ['computers'] });
 
   const create = ref(false);
 

@@ -46,6 +46,7 @@
         :options="branchStore.branches"
         :error="{'border-red-500 focus:border-red-500': v$.branchId.$error, message: v$.branchId.$errors[0]?.$message }"
         :selection="props.data?.branchId"
+        :disable="Boolean(props.data)"
       />
       <Input
         id="computer-name"

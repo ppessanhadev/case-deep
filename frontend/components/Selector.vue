@@ -8,6 +8,7 @@
     placeholder?: string;
     error?: { message?: unknown, 'border-red-500 focus:border-red-500': boolean };
     selection?: string;
+    disable?: boolean;
   }>();
 
   defineEmits(['update:modelValue']);
@@ -17,7 +18,7 @@
   <label :for="props.id" class="flex flex-col text-slate-500 font-bold" :class="props.class">
     {{ props.label }}
 
-    <select :id="props.id" class="p-2 border font-normal" :class="error" :disabled="Boolean(selection)" @change="$emit('update:modelValue', ($event.target as HTMLSelectElement).value)">
+    <select :id="props.id" class="p-2 border font-normal" :class="error" :disabled="disable" @change="$emit('update:modelValue', ($event.target as HTMLSelectElement).value)">
       <option selected disabled class="text-gray-400" value="">
         {{ props.placeholder || 'Escolha uma opção' }}
       </option>

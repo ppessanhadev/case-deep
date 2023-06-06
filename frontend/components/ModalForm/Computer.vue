@@ -1,21 +1,41 @@
 <script setup lang="ts">
-  const props = defineProps<{ close: () => void }>();
+  import { Computer } from '~~/types/Computer';
 
-  const fields = reactive({ name: '', description: '', quantity: '0', branchId: '', brand: '' });
+  const props = defineProps<{ close: () => void, data?: Computer }>();
+
+  const fields = reactive({
+    name: props.data?.name || '',
+    description: props.data?.description || '',
+    quantity: props.data?.quantity || '0',
+    branchId: props.data?.branchId || '',
+    brand: props.data?.brand || ''
+  });
   const v$ = useComputerFormValidation(fields);
 
-  const selectors = computed(() => ({
-    branches: [{ id: '551', name: 'Afiliadox' }, { id: '254', name: 'Afiliadão' }],
-    brands: [{ id: 'Unknown', name: 'Genérico' }, { id: 'Acer', name: 'Acer' }, { id: 'Gigabyte', name: 'Gigabyte' }]
-  }));
+  const branchStore = useBranchStore();
+  const computerStore = useComputerStore();
+
+  const brands = computed(() => ([
+    { id: 'Unknown', name: 'Genérico' },
+    { id: 'Acer', name: 'Acer' },
+    { id: 'Alienware', name: 'Alienware' },
+    { id: 'Asus', name: 'Asus' },
+    { id: 'Dell', name: 'Dell' },
+    { id: 'Gigabyte', name: 'Gigabyte' },
+    { id: 'Samsung', name: 'Samsung' },
+  ]));
 
   const handleSubmit = () => {
     v$.value.$validate();
 
-    if (!v$.value.$error) {
-      console.log('subindo...');
-      props.close();
+    if (v$.value.$error) return;
+
+    if (!props.data) {
+      computerStore.addComputer(fields);
+    } else {
+      computerStore.updateComputer(props.data.id, fields);
     }
+    props.close();
   };
 </script>
 
@@ -27,14 +47,16 @@
       </button>
 
       <h1 class="text-3xl text-slate-600 font-bold mb-4 capitalize">
-        Cadastrar computador
+        {{ props.data ? 'Editar' : 'Cadastrar' }} computador
       </h1>
 
       <Selector
         id="branch-selector"
         v-model="fields.branchId" label="Afiliado"
-        :options="selectors.branches"
+        :options="branchStore.branches"
         :error="{'border-red-500 focus:border-red-500': v$.branchId.$error, message: v$.branchId.$errors[0]?.$message }"
+        :selection="props.data?.branchId"
+        :disable="Boolean(props.data)"
       />
       <Input
         id="computer-name"
@@ -64,12 +86,13 @@
         v-model="fields.brand"
         label="Marca"
         class="mt-2"
-        :options="selectors.brands"
+        :options="brands"
         :error="{'border-red-500 focus:border-red-500': v$.brand.$error, message: v$.brand.$errors[0]?.$message }"
+        :selection="props.data?.brand"
       />
 
       <button type="button" class="btn-create-form capitalize" :disabled="v$.$error" @click="handleSubmit">
-        Cadastrar
+        {{ props.data ? 'Editar' : 'Cadastrar' }}
       </button>
     </form>
   </NuxtLayout>
