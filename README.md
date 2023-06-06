@@ -1,7 +1,7 @@
 # Case DEEPESG | Fullstack challenge
 Essa aplicação tem como objetivo ser uma plataforma de gestão de inventários, possuindo como campo princial afiliados ao qual tem produtos que são interligados aos mesmos.
 
-Ela foi desenvolvida como um monorepo, ou seja, possuí backend e frontend juntos.
+Ela foi desenvolvida como um monorepo, ou seja, possuí backend e frontend em conjunto.
 
 - Aplicação Frontend na Vercel: https://deepesg-frontend-case.vercel.app
 - Aplicação Backend na Google Cloud: https://api-deepesg-challenge-xwxdbbbitq-uc.a.run.app/api/docs
@@ -108,7 +108,7 @@ O projeto em si foi desenvolvido utilizado o gerenciador de pacote pnpm, para in
 
 O Frontend foi construído usando [Nuxt 3](https://nuxt.com), sendo responsável por consumir o backend, exigindo menos lógica possível, se importando apenas com o conteúdo visual da aplicação.
 
-Também tomei a liberade de realizar o deploy da aplicação na vercel, e ela pode ser acessada por [esse link]()
+Também tomei a liberade de realizar o deploy da aplicação na vercel, e ela pode ser acessada por [esse link](https://deepesg-frontend-case.vercel.app)
 
 **Tecnologias utilizadas**
 
@@ -154,7 +154,7 @@ Como toda a aplicação, sempre há espaços para melhorias, essas foram algumas
 
   - `backend`:
     - Maior cobertura de testes unitários
-    - Implementação de testes de ingração
+    - Implementação de testes de integração
     - Permitir apenas requisições diretamente do front com o cors
     - Melhor abtração com a possibilidade de receber generics dos repositories
   - `frontend`:
@@ -165,4 +165,4 @@ Como toda a aplicação, sempre há espaços para melhorias, essas foram algumas
   - `ci/cd`:
     - Impedir push direto na main
     - Adicionar actions para integração continua do frontend
-    - Rodar bateria de testes das aplicações como requisito antes de permitir integração das alterações
+    - Rodar bateria de testes das aplicações como requisito antes de permitir implementação das alterações
