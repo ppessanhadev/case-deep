@@ -32,6 +32,17 @@ export const useBranchStore = defineStore({
 
       await this.fetchBranches();
     },
+    async updateBranch(id: string, branch: Omit<Branch, 'id'>) {
+      this.loading = true;
+
+      await useApi('/api/v1/branch', {
+        method: 'PATCH',
+        params: { id },
+        body: branch
+      });
+
+      await this.fetchBranches();
+    },
     async deleteBranch(id: string) {
       this.loading = true;
 

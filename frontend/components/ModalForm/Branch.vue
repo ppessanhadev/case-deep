@@ -1,17 +1,23 @@
 <script setup lang="ts">
-  const props = defineProps<{ close: () => void }>();
+  import { Branch } from '~~/types/Branch';
+
+  const props = defineProps<{ close: () => void, data?: Branch }>();
   const branchStore = useBranchStore();
 
-  const fields = reactive({ name: '', description: '' });
+  const fields = reactive({ name: props.data?.name || '', description: props.data?.description || '' });
   const v$ = useBranchFormValidation(fields);
 
   const handleSubmit = () => {
     v$.value.$validate();
 
-    if (!v$.value.$error) {
-      props.close();
+    if (v$.value.$error) return;
+
+    if (!props.data) {
       branchStore.addBranch(fields);
+    } else {
+      branchStore.updateBranch(props.data.id, fields);
     }
+    props.close();
   };
 </script>
 
@@ -23,7 +29,7 @@
       </button>
 
       <h1 class="text-3xl text-slate-600 font-bold mb-4 capitalize">
-        Cadastrar afiliado
+        {{ props.data ? 'Editar' : 'Cadastrar' }} afiliado
       </h1>
 
       <Input
@@ -44,7 +50,7 @@
       />
 
       <button type="button" class="btn-create-form capitalize" :disabled="v$.$error" @click="handleSubmit">
-        Cadastrar
+        {{ props.data ? 'Editar' : 'Cadastrar' }}
       </button>
     </form>
   </NuxtLayout>
