@@ -1,5 +1,6 @@
 <script setup lang="ts">
   useHead({ title: 'DEEPESG | Ares condicionados' });
+  definePageMeta({ middleware: ['air-conditioners'] });
 
   const create = ref(false);
 

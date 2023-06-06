@@ -1,20 +1,31 @@
 <script setup lang="ts">
-  const props = defineProps<{ close: () => void }>();
+  import { AirConditioner } from '~~/types/AirConditioner';
 
-  const fields = reactive({ name: '', description: '', quantity: '0', btu: '', branchId: '' });
+  const props = defineProps<{ close: () => void, data?: AirConditioner }>();
+
+  const fields = reactive({
+    name: props.data?.name ||'',
+    description: props.data?.description || '',
+    quantity: props.data?.quantity || '0',
+    btu: props.data?.btu || '',
+    branchId: props.data?.branchId || ''
+  });
   const v$ = useAirConditionerFormValidation(fields);
 
-  const selectors = computed(() => ({
-    branches: [{ id: '551', name: 'Afiliadox' }, { id: '254', name: 'Afiliadão' }],
-  }));
+  const branchStore = useBranchStore();
+  const acStore = useAirConditionerStore();
 
   const handleSubmit = () => {
     v$.value.$validate();
 
-    if (!v$.value.$error) {
-      console.log('subindo...');
-      props.close();
+    if (v$.value.$error) return;
+
+    if (!props.data) {
+      acStore.addAirConditioner(fields);
+    } else {
+      acStore.updateAirConditioner(props.data.id, fields);
     }
+    props.close();
   };
 </script>
 
@@ -26,14 +37,15 @@
       </button>
 
       <h1 class="text-3xl text-slate-600 font-bold mb-4 capitalize">
-        Cadastrar ar condicionado
+        {{ props.data ? 'Editar' : 'Cadastrar' }} ar condicionado
       </h1>
 
       <Selector
         id="branch-selector"
         v-model="fields.branchId" label="Afiliado"
-        :options="selectors.branches"
+        :options="branchStore.branches"
         :error="{'border-red-500 focus:border-red-500': v$.branchId.$error, message: v$.branchId.$errors[0]?.$message }"
+        :selection="props.data?.branchId"
       />
       <Input
         id="computer-name"
@@ -69,7 +81,7 @@
       />
 
       <button type="button" class="btn-create-form capitalize" :disabled="v$.$error" @click="handleSubmit">
-        Cadastrar
+        {{ props.data ? 'Editar' : 'Cadastrar' }}
       </button>
     </form>
   </NuxtLayout>

@@ -3,7 +3,7 @@
     id: string;
     label: string;
     type: 'text' | 'number' | 'textarea';
-    modelValue: string;
+    modelValue: string | number;
     class?: string;
     placeholder?: string;
     error?: { message?: unknown, 'border-red-500 focus:border-red-500': boolean };
