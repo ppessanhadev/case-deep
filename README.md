@@ -39,7 +39,7 @@ Os dados que devem ser enviados e são opcionais podem ser vistos a partir da do
 |    PATCH   | /api/v1/branch?id={branch_id} |       id      |                  Atualiza os dados de um afiliando pelo id recebido por query                  |
 |   DELETE   | /api/v1/branch?id={branch_id} |       id      | Remove um afiliado pelo id recebido por query e todos os produtos associados do banco de dados |
 
->**Ar condicionados**
+>**Ares condicionados**
 
 | **Método** |               **Rota**              | **Parâmetro** |                            **Descrição**                           |
 |:----------:|:-----------------------------------:|:-------------:|:------------------------------------------------------------------:|
@@ -91,6 +91,22 @@ O projeto em si foi desenvolvido utilizado o gerenciador de pacote pnpm, para in
 
 >> A aplicação estará rodando em: http://localhost:3000 mas pode ser alterada caso aplique uma porta diferente no arquivo `.env` atribuindo a chave `PORT`
 
-## Frontend
+## Frontend Nuxt3 (Vue)
 
-Em desenvolvimento.
+O Frontend foi construído usando [Nuxt 3](https://nuxt.com), sendo responsável por consumir o backend, exigindo menos lógica possível, se importando apenas com o conteúdo visual da aplicação.
+
+**Tecnologias utilizadas**
+
+- Typescript
+- Lint com [ESlint](https://eslint.org)
+- [Tailwind](https://tailwindcss.com) para estilização das páginas
+- [Pinia](https://pinia.vuejs.org) para gerencimaneto de estados global
+
+**Rodando localmente com pnpm**
+
+O projeto em si foi desenvolvido utilizado o gerenciador de pacote pnpm, para instalar, no seu terminal execute o comando `npm i -g pnpm`, e siga os próximos passos:
+
+1. `cd frontend`
+2. `cp .env.example .env`
+3. `pnpm install`
+6. `pnpm dev`
