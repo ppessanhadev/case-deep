@@ -12,11 +12,8 @@
 <template>
   <main class="w-full h-screen">
     <Navbar />
-
     <Header title="Computador" title-plural="Computadores" :open="handleCreate" />
-
     <ModalFormComputer v-if="create" :close="handleCreate" />
-
     <ComputerTable />
   </main>
 </template>

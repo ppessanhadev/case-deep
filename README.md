@@ -3,6 +3,9 @@ Essa aplicação tem como objetivo ser uma plataforma de gestão de inventários
 
 Ela foi desenvolvida como um monorepo, ou seja, possuí backend e frontend juntos.
 
+- Aplicação Frontend na Vercel: 
+- Aplicação Backend na Google Cloud: https://api-deepesg-challenge-xwxdbbbitq-uc.a.run.app/api/docs
+
 **Overview da aplicação**
 
 Para o desenvolvimento geral, utilizei as principais ferramentas e conceitos:
@@ -94,6 +97,8 @@ O projeto em si foi desenvolvido utilizado o gerenciador de pacote pnpm, para in
 ## Frontend Nuxt3 (Vue)
 
 O Frontend foi construído usando [Nuxt 3](https://nuxt.com), sendo responsável por consumir o backend, exigindo menos lógica possível, se importando apenas com o conteúdo visual da aplicação.
+
+Também tomei a liberade de realizar o deploy da aplicação na vercel, e ela pode ser acessada por [esse link]()
 
 **Tecnologias utilizadas**
 

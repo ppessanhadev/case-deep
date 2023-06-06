@@ -12,11 +12,8 @@
 <template>
   <main class="w-full h-screen">
     <Navbar />
-
     <Header title="Ar condicionado" title-plural="Ares Condicionados" :open="handleCreate" />
-
     <ModalFormAirConditioner v-if="create" :close="handleCreate" />
-
     <AirConditionerTable />
   </main>
 </template>
