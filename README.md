@@ -3,7 +3,7 @@ Essa aplicação tem como objetivo ser uma plataforma de gestão de inventários
 
 Ela foi desenvolvida como um monorepo, ou seja, possuí backend e frontend juntos.
 
-- Aplicação Frontend na Vercel: 
+- Aplicação Frontend na Vercel: https://deepesg-frontend-case.vercel.app
 - Aplicação Backend na Google Cloud: https://api-deepesg-challenge-xwxdbbbitq-uc.a.run.app/api/docs
 
 **Overview da aplicação**
