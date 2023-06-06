@@ -13,6 +13,7 @@ export const useComputerStore = defineStore({
   actions: {
     async fetchComputers() {
       this.loading = true;
+
       const { data: computer } = await useApi<Computer[]>('/api/v1/computer');
 
       if (computer.value) {
