@@ -153,16 +153,16 @@ Para rodar toda a aplicação de uma vez só, precisará do docker-compose, uma 
 Como toda a aplicação, sempre há espaços para melhorias, essas foram algumas possiveis melhorias que consegui identificar:
 
   - `backend`:
-    - Maior cobertura de testes unitários
-    - Implementação de testes de integração
-    - Permitir apenas requisições diretamente do front com o cors
-    - Melhor abtração com a possibilidade de receber generics dos repositories
+    - [ ] Maior cobertura de testes unitários
+    - [ ] Implementação de testes de integração
+    - [x] Permitir apenas requisições diretamente do front com o cors
+    - [x] Melhor abtração com a possibilidade de receber generics dos repositories
   - `frontend`:
-    - Implementação de testes unitários
-    - Implementação de testes E2E
-    - Melhor aproveitação de abstração de componentes, reduzindo consideravelmente sua quantidade
-    - Adição de Página 404
+    - [ ] Implementação de testes unitários
+    - [ ] Implementação de testes E2E
+    - [ ] Melhor aproveitação de abstração de componentes, reduzindo consideravelmente sua quantidade
+    - [ ] Adição de Página 404
   - `ci/cd`:
-    - Impedir push direto na main
-    - Adicionar actions para integração continua do frontend
-    - Rodar bateria de testes das aplicações como requisito antes de permitir implementação das alterações
+    - [ ] Impedir push direto na main
+    - [ ] Adicionar actions para integração continua do frontend
+    - [ ] Rodar bateria de testes das aplicações como requisito antes de permitir implementação das alterações
