@@ -6,7 +6,9 @@ Ela foi desenvolvida como um monorepo, ou seja, possuí backend e frontend junto
 - Aplicação Frontend na Vercel: https://deepesg-frontend-case.vercel.app
 - Aplicação Backend na Google Cloud: https://api-deepesg-challenge-xwxdbbbitq-uc.a.run.app/api/docs
 
-**Overview da aplicação**
+**OBS**: A aplicação pelo front pode dar timeout se estiver muito tempo sem se comunicar com o backend, apenas tente acessar novamente.
+
+## Overview da aplicação
 
 Para o desenvolvimento geral, utilizei as principais ferramentas e conceitos:
 - [NestJS](https://nestjs.com) para o desenvolvimento backend
