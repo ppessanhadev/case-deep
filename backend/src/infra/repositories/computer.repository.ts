@@ -1,4 +1,4 @@
 import { Computer } from '@prisma/client';
-import { BaseRepository } from 'src/core/BaseRepository';
+import { BaseRepository } from '@base/BaseRepository';
 
 export class ComputerRepository extends BaseRepository<Computer> {}

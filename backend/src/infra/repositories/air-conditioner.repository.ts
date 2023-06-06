@@ -1,4 +1,4 @@
 import { AirConditioner } from '@prisma/client';
-import { BaseRepository } from 'src/core/BaseRepository';
+import { BaseRepository } from '@base/BaseRepository';
 
 export class AirConditionerRepository extends BaseRepository<AirConditioner> {}

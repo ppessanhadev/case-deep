@@ -67,6 +67,7 @@ Os dados que devem ser enviados e são opcionais podem ser vistos a partir da do
 O Backend foi organizado e está divida nas seguintes camadas:
 
 - `application`: Responsável por conter tudo relacionado a fluxo de entrada e saída da aplicação, podendo incluir validações de entrada, tratativa de erro e segurança caso seja necessário.
+- `base`: Responsável por conter classes abstradas para melhor reaproveitamento de mesmas lógicas implementadas.
 - `domain`: Responsável por conter toda a lógica e regra de negócio através de seus casos de uso.
 - `infra`: Responsável por conter e gerenciar comunicações externas, seja com banco de dados, com provedores como APIs externas e microserviços.
 - `shared`: Responsável por conter tudo aquilo que pode ser compartilhado entre outras camadas, como tipagens e configurações de ambiente.

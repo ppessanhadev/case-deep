@@ -25,6 +25,7 @@
       "@infra/*": ["src/infra/*"],
       "@repositories/*": ["src/infra/repositories/*"],
       "@shared/*": ["src/shared/*"],
+      "@base/*": ["src/base/*"],
       "@test/*": ["test/*"]
     }
   }
