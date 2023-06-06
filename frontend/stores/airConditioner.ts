@@ -13,6 +13,7 @@ export const useAirConditionerStore = defineStore({
   actions: {
     async fetchAirConditioners() {
       this.loading = true;
+
       const { data: ac } = await useApi<AirConditioner[]>('/api/v1/air-conditioner');
 
       if (ac.value) {
