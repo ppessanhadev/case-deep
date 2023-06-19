@@ -3,18 +3,13 @@ Essa aplicação tem como objetivo ser uma plataforma de gestão de inventários
 
 Ela foi desenvolvida como um monorepo, ou seja, possuí backend e frontend em conjunto.
 
-- Aplicação Frontend na Vercel: https://deepesg-frontend-case.vercel.app
-- Aplicação Backend na Google Cloud: https://api-deepesg-challenge-xwxdbbbitq-uc.a.run.app/api/docs
-
-**OBS**: A aplicação pelo front pode dar timeout se estiver muito tempo sem se comunicar com o backend, apenas tente acessar novamente.
-
 ## Overview da aplicação
 
 Para o desenvolvimento geral, utilizei as principais ferramentas e conceitos:
 - [NestJS](https://nestjs.com) para o desenvolvimento backend
 - [Nuxt 3](https://nuxt.com) para o desenvolvimento frontend
 - [Github Actions](https://github.com/features/actions) para automação de deploy e integração continua dos serviços;
-- O Backend recebeu um deploy na Google Cloud, em quanto o frontend na Vercel
+- O Backend recebeu um deploy na Google Cloud, em quanto o frontend na Vercel (**Desativado**)
 - Backend foi projetado com arquitetura hexagonal e conceitos de SOLID e Clean Code visando o crescimento esponencial da aplicação
 - Pode ser rodada separadamente com [pnpm](https://pnpm.io) ou [docker](https://www.docker.com)
 
@@ -33,7 +28,7 @@ O Backend foi desenvolvido com [NestJS](https://nestjs.com), toda a lógica da a
 
 **Rotas**
 
-Os dados que devem ser enviados e são opcionais podem ser vistos a partir da documentação gerada pelo Swagger [nesse link](https://api-deepesg-challenge-xwxdbbbitq-uc.a.run.app/api/docs)
+Os dados que devem ser enviados e são opcionais podem ser vistos a partir da documentação gerada pelo Swagger em `/api/docs`
 
 > **Afiliados**
 
@@ -108,8 +103,6 @@ O projeto em si foi desenvolvido utilizado o gerenciador de pacote pnpm, para in
 ## Frontend Nuxt3 (Vue)
 
 O Frontend foi construído usando [Nuxt 3](https://nuxt.com), sendo responsável por consumir o backend, exigindo menos lógica possível, se importando apenas com o conteúdo visual da aplicação.
-
-Também tomei a liberade de realizar o deploy da aplicação na vercel, e ela pode ser acessada por [esse link](https://deepesg-frontend-case.vercel.app)
 
 **Tecnologias utilizadas**
 
