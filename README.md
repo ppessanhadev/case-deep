@@ -10,7 +10,7 @@ Para o desenvolvimento geral, utilizei as principais ferramentas e conceitos:
 - [Nuxt 3](https://nuxt.com) para o desenvolvimento frontend
 - [Github Actions](https://github.com/features/actions) para automação de deploy e integração continua dos serviços;
 - O Backend recebeu um deploy na Google Cloud, em quanto o frontend na Vercel (**Desativado**)
-- Backend foi projetado com arquitetura hexagonal e conceitos de SOLID e Clean Code visando o crescimento esponencial da aplicação
+- Backend foi projetado com arquitetura hexagonal e conceitos de SOLID e Clean Code visando o crescimento exponencial da aplicação
 - Pode ser rodada separadamente com [pnpm](https://pnpm.io) ou [docker](https://www.docker.com)
 
 ## Backend REST API
